@@ -225,7 +225,7 @@ header {
     letter-spacing: 0.5px;
     color: var(--textInverseStrong);
     position: relative;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-family: var(--fontGrotesk);
     font-weight: 400;
     text-decoration: none;
