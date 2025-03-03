@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLC-contact</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+    />
+  </head>
+  <body>
+    <div class="about-bg">
+      <!-- Header  -->
+      <header class="internal-header">
+        <div class="container">
+          <div class="header">
+            <a href="index.html" class="header-logo">
+              <img src="./assets/images/logo/logo-glc.png" alt="logo" />
+            </a>
+            <nav class="header-nav">
+              <ul>
+                <li><a href="index.html">ANA SƏHİFƏ</a></li>
+                <li class="dropdown">
+                  <a class="dropbtn" href="./about.html"
+                    >HAQQIMIZDA <i class="fa-solid fa-angle-down"></i
+                  ></a>
+                  <div class="dropdown-content">
+                    <a href="./vision.html">Vizyonumuz</a>
+                    <a href="./mission.html">Missiyamız</a>
+                  </div>
+                </li>
+                <li><a href="./services.html">XİDMƏTLƏR</a></li>
+                <li><a href="./blogs.html">XƏBƏRLƏR</a></li>
+                <li><a href="./contact.html">ƏLAQƏ</a></li>
+              </ul>
+            </nav>
+
+            <div class="header-right">
+              <!-- <div class="language-dropdown">
+                      <button class="language-dropbtn">AZ</button>
+                      <div class="language-dropdown-content">
+                        <a href="#">EN</a>
+                        <a href="#">RU</a>
+                        <a href="#">TR</a>
+                      </div>
+                    </div> -->
+
+              <button class="header-button">
+                <a href="./contact.html"> Yükünü əmanət et </a>
+              </button>
+
+              <div class="burger-menu" id="burgerMenu">
+                <i class="fa-solid fa-bars"></i>
+              </div>
+
+              <!-- mobile nav -->
+              <div class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-header">
+                  <a href="index.html" class="header-logo">
+                    <img src="./assets/images/logo/logo-glc.png" alt="logo" />
+                  </a>
+                  <button class="close-btn" id="closeBtn">&times;</button>
+                </div>
+                <ul class="mobile-nav-list">
+                  <li><a href="index.html">ANA SƏHİFƏ</a></li>
+                  <li><a href="#about">HAQQIMIZDA</a></li>
+                  <li><a href="#panel">XİDMƏTLƏR</a></li>
+                  <li><a href="#spikers">XƏBƏRLƏR</a></li>
+                </ul>
+
+                <button class="header-button">
+                  <a href="./contact.html"> Yükünü əmanət et </a>
+                </button>
+              </div>
+
+              <div class="overlay" id="overlay"></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero-about container">
+        <div class="heading-content">
+          <h1>Əlaqə</h1>
+          <div class="breadcrumbs">
+            <a href="/index.html">Ana səhifə</a>
+            <p>/</p>
+            <a href="">Əlaqə</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <main>
+      <section class="contact-section container">
+        <div class="contact-img">
+          <img src="./assets/images/about/about1.png" alt="contact image" />
+        </div>
+
+        <div class="contact-form">
+          <form id="customForm">
+            <!-- First row: Fullname and Company Name -->
+            <div class="input-row">
+              <div class="form-group">
+                <label for="fullname">Ad Soyad</label>
+                <input
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Adınızı və soyadınızı daxil edin"
+                />
+                <small class="helper-text"></small>
+              </div>
+              <div class="form-group">
+                <label for="company">Şirkət adı</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="Şirkət adını daxil edin"
+                />
+                <small class="helper-text"></small>
+              </div>
+            </div>
+
+            <!-- Service Category (custom dropdown) -->
+            <div class="form-group">
+              <label for="serviceCategory">Xidmətin növü</label>
+              <div class="custom-dropdown" id="serviceDropdown">
+                <div class="dropdown-selected">Select Service Category</div>
+                <ul class="dropdown-options">
+                  <li data-value="category1">Category 1</li>
+                  <li data-value="category2">Category 2</li>
+                  <li data-value="category3">Category 3</li>
+                </ul>
+              </div>
+              <!-- Hidden input to store the selected dropdown value -->
+              <input
+                type="hidden"
+                id="serviceCategory"
+                name="serviceCategory"
+                value=""
+              />
+              <small class="helper-text"></small>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Emailinizi daxil edin"
+              />
+              <small class="helper-text"></small>
+            </div>
+
+            <!-- Message textarea -->
+            <div class="form-group">
+              <label for="message">Mesaj</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Mesajınızı daxil edin"
+              ></textarea>
+              <small class="helper-text"></small>
+            </div>
+
+            <!-- Send Button (aligned left by default) -->
+            <div class="form-group-btn">
+              <button type="submit" id="sendButton">Göndər</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="contact-details container">
+        <div class="contact-details-section">
+          <div class="contact-detailed-data">
+            <h4>İş saatları</h4>
+            <p>Bazar ertəsi - Cümə, 09:00 - 18:00</p>
+          </div>
+          <div class="contact-detailed-data">
+            <h4>Ünvan</h4>
+            <p>Nizami küçəsi 45, Bakı, Azərbaycan</p>
+          </div>
+          <div class="contact-detailed-data">
+            <h4>Əlaqə vasitələri</h4>
+            <p>Nizami küçəsi 45, Bakı, Azərbaycan</p>
+          </div>
+          <div class="footer-contact-social">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="./assets/images/icons/face.png" alt="Facebook icon" />
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="./assets/images/icons/inst.png" alt="Instagram icon" />
+            </a>
+            <img src="./assets/images/icons/link.png" alt="social media icon" />
+          </div>
+          <div class="contact-detailed-data">
+            <h4>İş saatları</h4>
+            <p>Bazar ertəsi - Cümə, 09:00 - 18:00</p>
+          </div>
+        </div>
+
+        <div class="map-section">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.903277935815!2d-122.08424968469235!3d37.42199977982533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5cf243c5b1d%3A0x4c9b1cd847218a3a!2sGoogleplex!5e0!3m2!1sen!2sus!4v1581062120738!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            frameborder="0"
+            style="border: 0"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          >
+          </iframe>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content-left">
+          <img src="./assets/images/logo/logo-glc.png" alt="logo" />
+          <p class="footer-contact-detail">
+            Lorem ipsum dolor sit amet consectetur.  Morbi semper vulputate
+            libero commodo.
+          </p>
+          <div class="footer-contact-social">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="./assets/images/icons/face.png" alt="Facebook icon" />
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="./assets/images/icons/inst.png" alt="Instagram icon" />
+            </a>
+            <img src="./assets/images/icons/link.png" alt="social media icon" />
+          </div>
+        </div>
+
+        <div class="footer-content-right">
+          <div class="footer-nav">
+            <p class="footer-title">Faydalı linklər</p>
+            <ul class="footer-nav-list">
+              <li><a href="index.html">Ana səhifə</a></li>
+              <li><a href="#about">Haqqımızda</a></li>
+              <li><a href="#panel">Xidmətlər</a></li>
+              <li><a href="#spikers">Xəbərlər</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav">
+            <p class="footer-title">Ünvan</p>
+            <ul class="footer-nav-list">
+              <li><a href="index.html">Xidmətlər</a></li>
+              <li><a href="#about">Contact Us</a></li>
+              <li><a href="#panel">Blog</a></li>
+              <li><a href="#spikers">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav">
+            <p class="footer-title">Əlaqə</p>
+            <ul class="footer-nav-list">
+              <li><a href="index.html">Ana səhifə</a></li>
+              <li><a href="#about">Haqqımızda</a></li>
+              <li><a href="#panel">Xidmətlər</a></li>
+              <li><a href="#spikers">Xəbərlər</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
