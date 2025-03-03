@@ -26,23 +26,73 @@
   <body>
     <div class="about-bg">
       <!-- Header  -->
-      <nav class="header-nav">
-        <ul>
-          <li><a href="index.html">ANA SƏHİFƏ</a></li>
-          <li class="dropdown">
-            <a class="dropbtn" href="./about.html"
-              >HAQQIMIZDA <i class="fa-solid fa-angle-down"></i
-            ></a>
-            <div class="dropdown-content">
-              <a href="./vision.html">Vizyonumuz</a>
-              <a href="./mission.html">Missiyamız</a>
+      <header class="internal-header">
+        <div class="container">
+          <div class="header">
+            <a href="index.html" class="header-logo">
+              <img src="./assets/images/logo/logo-glc.png" alt="logo" />
+            </a>
+            <nav class="header-nav">
+              <ul>
+                <li><a href="index.html">ANA SƏHİFƏ</a></li>
+                <li class="dropdown">
+                  <a class="dropbtn" href="./about.html"
+                    >HAQQIMIZDA <i class="fa-solid fa-angle-down"></i
+                  ></a>
+                  <div class="dropdown-content">
+                    <a href="./vision.html">Vizyonumuz</a>
+                    <a href="./mission.html">Missiyamız</a>
+                  </div>
+                </li>
+                <li><a href="./services.html">XİDMƏTLƏR</a></li>
+                <li><a href="./blogs.html">XƏBƏRLƏR</a></li>
+                <li><a href="./contact.html">ƏLAQƏ</a></li>
+              </ul>
+            </nav>
+
+            <div class="header-right">
+              <!-- <div class="language-dropdown">
+                      <button class="language-dropbtn">AZ</button>
+                      <div class="language-dropdown-content">
+                        <a href="#">EN</a>
+                        <a href="#">RU</a>
+                        <a href="#">TR</a>
+                      </div>
+                    </div> -->
+
+              <button class="header-button">
+                <a href="./contact.html"> Yükünü əmanət et </a>
+              </button>
+
+              <div class="burger-menu" id="burgerMenu">
+                <i class="fa-solid fa-bars"></i>
+              </div>
+
+              <!-- mobile nav -->
+              <div class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-header">
+                  <a href="index.html" class="header-logo">
+                    <img src="./assets/images/logo/logo-glc.png" alt="logo" />
+                  </a>
+                  <button class="close-btn" id="closeBtn">&times;</button>
+                </div>
+                <ul class="mobile-nav-list">
+                  <li><a href="index.html">ANA SƏHİFƏ</a></li>
+                  <li><a href="#about">HAQQIMIZDA</a></li>
+                  <li><a href="#panel">XİDMƏTLƏR</a></li>
+                  <li><a href="#spikers">XƏBƏRLƏR</a></li>
+                </ul>
+
+                <button class="header-button">
+                  <a href="./contact.html"> Yükünü əmanət et </a>
+                </button>
+              </div>
+
+              <div class="overlay" id="overlay"></div>
             </div>
-          </li>
-          <li><a href="./services.html">XİDMƏTLƏR</a></li>
-          <li><a href="./blogs.html">XƏBƏRLƏR</a></li>
-          <li><a href="./contact.html">ƏLAQƏ</a></li>
-        </ul>
-      </nav>
+          </div>
+        </div>
+      </header>
 
       <!-- Hero Section -->
       <section class="hero-about container">
@@ -51,9 +101,9 @@
           <div class="breadcrumbs">
             <a href="/index.html">Ana səhifə</a>
             <p>/</p>
-            <a href="/services.html">Xidmətlər</a>
+            <a href="">Xidmətlər</a>
             <p>/</p>
-            <a href="">Xidmət 1</a>
+            <a href="">Xidmət 12</a>
           </div>
         </div>
       </section>
@@ -233,7 +283,69 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check and attach mobile menu events if elements exist
+        const burgerMenu = document.getElementById("burgerMenu");
+        const mobileNav = document.getElementById("mobileNav");
+        const closeBtn = document.getElementById("closeBtn");
+        const overlay = document.getElementById("overlay");
 
-    <script src="./assets/js/script.js"></script>
+        if (burgerMenu && mobileNav && closeBtn && overlay) {
+          burgerMenu.addEventListener("click", () => {
+            mobileNav.classList.add("active");
+            overlay.classList.add("active");
+          });
+          closeBtn.addEventListener("click", () => {
+            mobileNav.classList.remove("active");
+            overlay.classList.remove("active");
+          });
+          overlay.addEventListener("click", () => {
+            mobileNav.classList.remove("active");
+            overlay.classList.remove("active");
+          });
+        }
+
+        // Marquee duplication and pause on hover if elements exist
+        const marqueeContainer = document.getElementById("marqueeContainer");
+        const marqueeWrapper = document.getElementById("marqueeWrapper");
+        if (marqueeContainer && marqueeWrapper) {
+          marqueeWrapper.innerHTML += marqueeWrapper.innerHTML;
+          marqueeContainer.addEventListener("mouseover", () => {
+            marqueeWrapper.classList.add("paused");
+          });
+          marqueeContainer.addEventListener("mouseout", () => {
+            marqueeWrapper.classList.remove("paused");
+          });
+        }
+
+        // Initialize the vertical slider for similar services
+        $(".similar-services-cards").slick({
+          vertical: true,
+          verticalSwiping: true,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: false,
+          infinite: false,
+        });
+
+        // Enable mouse wheel scrolling on the slider
+        $(".similar-services-cards").on("wheel", function (e) {
+          e.preventDefault();
+          // Throttle to prevent rapid-fire scrolling events
+          if ($(this).data("isThrottled")) return;
+          $(this).data("isThrottled", true);
+          if (e.originalEvent.deltaY < 0) {
+            $(this).slick("slickPrev");
+          } else {
+            $(this).slick("slickNext");
+          }
+          setTimeout(() => {
+            $(this).data("isThrottled", false);
+          }, 400); // Adjust delay as needed
+        });
+      });
+    </script>
   </body>
 </html>
