@@ -253,6 +253,87 @@
         </div>
       </div>
     </footer>
+    <div id="modal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="close">&times;</span>
+        <h2 class="modal-title">Əlaqə</h2>
+        <form id="modalForm">
+          <!-- Fullname input -->
+          <div class="custom-form-group">
+            <label for="fullname-modal">Ad Soyad</label>
+            <input
+              type="text"
+              id="fullname-modal"
+              name="fullname"
+              placeholder="Adınızı və soyadınızı daxil edin"
+            />
+            <small class="modal-helper-text"></small>
+          </div>
+
+          <!-- Company Name input -->
+          <div class="custom-form-group">
+            <label for="company-modal">Şirkət adı</label>
+            <input
+              type="text"
+              id="company-modal"
+              name="company"
+              placeholder="Şirkət adını daxil edin"
+            />
+            <small class="modal-helper-text"></small>
+          </div>
+
+          <!-- Service Category Dropdown -->
+          <div class="custom-form-group">
+            <label for="serviceCategory-modal">Xidmətin növü</label>
+            <div class="custom-modal-dropdown" id="serviceDropdown-modal">
+              <div class="modal-dropdown-selected">
+                Xidmət kateqoriyasını seçin
+              </div>
+              <ul class="modal-dropdown-options">
+                <li data-value="category1">Category 1</li>
+                <li data-value="category2">Category 2</li>
+                <li data-value="category3">Category 3</li>
+              </ul>
+            </div>
+            <input
+              type="hidden"
+              id="serviceCategory-modal"
+              name="serviceCategory"
+              value=""
+            />
+            <small class="modal-helper-text"></small>
+          </div>
+
+          <!-- Email input -->
+          <div class="custom-form-group">
+            <label for="email-modal">Email</label>
+            <input
+              type="email"
+              id="email-modal"
+              name="email"
+              placeholder="Emailinizi daxil edin"
+            />
+            <small class="modal-helper-text"></small>
+          </div>
+
+          <!-- Message textarea -->
+          <div class="custom-form-group">
+            <label for="message-modal">Mesaj</label>
+            <textarea
+              id="message-modal"
+              name="message"
+              placeholder="Mesajınızı daxil edin"
+            ></textarea>
+            <small class="modal-helper-text"></small>
+          </div>
+
+          <!-- Send Button -->
+          <div class="custom-form-group-btn">
+            <button type="submit" id="sendButton-modal">Göndər</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
