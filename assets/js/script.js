@@ -198,7 +198,6 @@ $(document).ready(function () {
     nextArrow: $(".next-arrow"),
   });
 
-  
   $(".slider").on(
     "init reInit afterChange",
     function (event, slick, currentSlide) {
@@ -215,4 +214,82 @@ $(document).ready(function () {
       }
     }
   );
+});
+
+const modal = document.getElementById("modal");
+const openModalBtn = document.getElementById("openModalBtn");
+const closeBtnn = modal.querySelector(".close");
+
+openModalBtn.addEventListener("click", function () {
+  modal.style.display = "block";
+  document.body.style.overflow = "hidden"; // Prevent background scroll
+});
+
+function closeModal() {
+  modal.style.display = "none";
+  document.body.style.overflow = ""; // Restore scroll
+}
+
+closeBtnn.addEventListener("click", closeModal);
+window.addEventListener("click", function (event) {
+  if (event.target == modal) {
+    closeModal();
+  }
+});
+
+/* ---------- Dropdown Toggle Functionality ---------- */
+const dropdown = document.getElementById("serviceDropdown-modal");
+const dropdownSelected = dropdown.querySelector(".modal-dropdown-selected");
+const dropdownOptions = dropdown.querySelector(".modal-dropdown-options");
+const hiddenInput = document.getElementById("serviceCategory-modal");
+
+dropdown.addEventListener("click", function (e) {
+  // Prevent event bubbling so window click doesn't immediately close it
+  e.stopPropagation();
+  dropdownOptions.style.display =
+    dropdownOptions.style.display === "block" ? "none" : "block";
+});
+
+dropdownOptions.addEventListener("click", function (e) {
+  if (e.target && e.target.nodeName === "LI") {
+    dropdownSelected.textContent = e.target.textContent;
+    hiddenInput.value = e.target.getAttribute("data-value");
+    dropdownOptions.style.display = "none";
+  }
+});
+
+// Close dropdown when clicking outside of it
+window.addEventListener("click", function (e) {
+  if (!dropdown.contains(e.target)) {
+    dropdownOptions.style.display = "none";
+  }
+});
+
+/* ---------- Form Validation for Helper Texts and Red Borders ---------- */
+const form = document.getElementById("modalForm");
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let valid = true;
+  // Select all text, email inputs, and textarea fields within the form
+  const inputs = document.querySelectorAll(
+    "#modalForm input[type='text'], #modalForm input[type='email'], #modalForm textarea"
+  );
+  inputs.forEach(function (input) {
+    const helperText = input.parentElement.querySelector(".modal-helper-text");
+    if (input.value.trim() === "") {
+      input.classList.add("error");
+      helperText.textContent = "Bu sahə mütləq doldurulmalıdır.";
+      helperText.style.display = "block";
+      valid = false;
+    } else {
+      input.classList.remove("error");
+      helperText.textContent = "";
+      helperText.style.display = "none";
+    }
+  });
+  if (valid) {
+    // Process valid form (e.g., send data to server)
+    console.log("Form submitted successfully!");
+    closeModal();
+  }
 });
