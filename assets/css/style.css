@@ -2325,11 +2325,12 @@ header {
 
 
 .contact-details-section {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 32px;
-}
+    width: 50%;
+  }
+  
 
 .contact-detailed-data {
     display: flex;
